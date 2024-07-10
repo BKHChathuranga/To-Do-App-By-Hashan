@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import { useEffect, useState } from "react";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import Modal from "./Modal";
 import {
   deleteTodoById,
@@ -11,7 +11,6 @@ import {
 import Pending from "../assets/Pending";
 import Completed from "../assets/Completed";
 import EmptyTable from "../assets/EmptyTable";
-
 
 const Table = ({ tasks }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -29,12 +28,12 @@ const Table = ({ tasks }) => {
       }
     };
     fetchNewTasks();
-  }, [deletingId,tasks]);
+  }, [deletingId, tasks]);
 
   const navigate = useNavigate();
 
   const handleRowClick = (id) => {
-    navigate(`/view-task/${id}`);
+    navigate(`/view-task/${id}`, { state: { updateState: false } });
   };
 
   const formatDate = (isoString) => {
@@ -72,7 +71,7 @@ const Table = ({ tasks }) => {
   const handleStatusChange = async (task) => {
     try {
       const newStatus = task.status === "completed" ? "pending" : "completed";
-      const data = { status: newStatus }
+      const data = { status: newStatus };
       const response = await updateTodo(task._id, data);
       if (response.success) {
         toast.success("To-Do status updated successfully");
@@ -88,8 +87,8 @@ const Table = ({ tasks }) => {
   };
 
   const handleUpdateButtonClick = (id) => {
-    navigate(`/view-task/${id}`,{state:{updateState:true}})
-  }
+    navigate(`/view-task/${id}`, { state: { updateState: true } });
+  };
 
   return (
     <div>
@@ -127,8 +126,9 @@ const Table = ({ tasks }) => {
                   className="text-center cursor-pointer"
                   onClick={() => handleRowClick(task._id)}
                 >
-                  {task.status === "pending" && (<Pending/>)}
-                  {task.status === "completed" && (<Completed/>)}{task.status}
+                  {task.status === "pending" && <Pending />}
+                  {task.status === "completed" && <Completed />}
+                  {task.status}
                 </td>
                 <td className="text-center">
                   <Button
@@ -137,7 +137,7 @@ const Table = ({ tasks }) => {
                     width="w-[114px]"
                     height="h-[48px]"
                     customStyles="text-n-2 font-semibold"
-                    onClick={()=>handleUpdateButtonClick(task._id)}
+                    onClick={() => handleUpdateButtonClick(task._id)}
                   />
                 </td>
                 <td className="text-center">
@@ -153,6 +153,7 @@ const Table = ({ tasks }) => {
                 <td className="rounded-e-lg text-center">
                   {" "}
                   <input
+                    className="custom-checkbox"
                     type="checkbox"
                     checked={task.status === "completed"}
                     onChange={() => handleStatusChange(task)}
@@ -163,7 +164,7 @@ const Table = ({ tasks }) => {
           {tasksList.length === 0 && (
             <tr>
               <td className="items-center" colSpan={6} align="center">
-                <EmptyTable/>
+                <EmptyTable />
                 <p className="text-center">No Tasks to display</p>
               </td>
             </tr>

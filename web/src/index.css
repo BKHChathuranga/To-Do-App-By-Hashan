@@ -11,8 +11,8 @@ body {
 
 /* DatePicker.css */
 .react-calendar {
-  background-color: #ffffff; /* Set background color */
-  color: #000000; /* Set text color */
+  background-color: #ffffff;
+  color: #000000;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
@@ -24,16 +24,16 @@ body {
 }
 
 .react-calendar__tile--active {
-  background-color: #3b82f6; /* Set active date background color */
-  color: #ffffff; /* Set active date text color */
+  background-color: #3b82f6;
+  color: #ffffff;
 }
 
 .react-calendar__tile--now {
-  background-color: #fde68a; /* Set today's date background color */
+  background-color: #fde68a;
 }
 
 .react-calendar__month-view__days__day--weekend {
-  color: #d32f2f; /* Set weekend text color */
+  color: #d32f2f;
 }
 
 .react-calendar__navigation button {
@@ -42,4 +42,16 @@ body {
 
 .react-calendar__navigation button:disabled {
   background-color: #f0f0f0;
+}
+
+
+.custom-checkbox {
+  width: 15px;
+  height: 15px;
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform-origin: 0 0;
 }
