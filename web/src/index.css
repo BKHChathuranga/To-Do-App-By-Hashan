@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  background-color: #0E0C15;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* DatePicker.css */
+.react-calendar {
+  background-color: #ffffff; /* Set background color */
+  color: #000000; /* Set text color */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.react-calendar__tile {
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.react-calendar__tile--active {
+  background-color: #3b82f6; /* Set active date background color */
+  color: #ffffff; /* Set active date text color */
+}
+
+.react-calendar__tile--now {
+  background-color: #fde68a; /* Set today's date background color */
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d32f2f; /* Set weekend text color */
+}
+
+.react-calendar__navigation button {
+  color: #000000;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
