@@ -16,7 +16,7 @@ Ensure you have the following installed on your machine:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
+   git clone https://github.com/yourusername/yourproject.git](https://github.com/BKHChathuranga/To-Do-App-By-Hashan
    cd yourproject
    ```
 
